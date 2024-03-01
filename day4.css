@@ -1,0 +1,62 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    background-color: lightblue;
+}
+
+p {
+    /* color: aquamarine; */
+    color: #334cd6;
+    text-align:center;
+}
+
+ol {
+    color: #f2f2f2;
+    background-color: rgb(158, 162, 183);
+}
+
+.important-item {
+    color: red;
+    background-color: thistle;
+}
+
+ul {
+    /* list-style-type: trad-chinese-informal; */
+    list-style-type: square;
+}
+
+.reference-links {
+    color: orange;
+    background-color: beige;
+}
+
+/* more specific than the previous rule */
+a:link {
+    color: red;
+  }
+
+/* if element has id I can use that to style that specific element */
+#important-paragraph {
+    color: green;
+    background-color: yellow;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: monospace;
+    /* monospace is a generic name for afont that is fixed-width typically used for code */
+}
+
+/* we can use !important to override any other style */
+/* this is not recommended because it can make the code hard to maintain */
+/* and it can be hard to debug */
+/* p {
+    color: green !important;
+    background-color: yellow !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    font-family: monospace !important;
+} */

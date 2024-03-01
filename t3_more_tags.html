@@ -6,11 +6,40 @@
     <title>More HTML Tags</title>
 </head>
 <body>
-    <h1 id="top_h1">More Tag Fun!</h1>
+    <header>
+        <h1 id="top_h1">More Tag Fun!</h1>
+    </header>
+    
 <!-- <hr> -->
-Link to bottom of the page: <a href="#last_footer">Footer</a>
+<main>
+    Link to bottom of the page: <a href="#last_footer">Footer</a>
 <h2>RTU logo</h2>
+<!-- TODO move pictures to img folder -->
     <img src="rtu_logo_lv.jpg" alt="RTU logo"  height="200">
+    <h2>Map of RTU</h2>
+    <iframe width="425" height="350" 
+    src="https://www.openstreetmap.org/export/embed.html?bbox=24.04654026031494%2C56.947150722261675%2C24.101729393005375%2C56.962315088460066&amp;layer=mapnik" 
+    style="border: 1px solid black"></iframe>
+    <br><small><a href="https://www.openstreetmap.org/#map=15/56.9547/24.0741">View Larger Map</a></small>
+    
+    <article>
+        <h2>Hotlinking</h2>
+        <p>    You can also hotlink an image meaning take an image address from somewhere else.
+            Generally you sould hotlink only to resources that you own or have permission to use.</p>
+    </article>
+
+    <img src="https://www.rtu.lv/writable/public_files/s_RTU_autonomous_ships.jpg" alt="RTU autonomous ships" height="200">
+
+    <article>
+        <h2>How to use iframe</h2>
+        <p>
+            You can use iframe to add pretty much any external content to your page. 
+        Just be careful with the size and the source of the content.
+        Youtube videos, Google Maps, and many other services provide you with an iframe code to embed their content.
+        </p>
+        
+    </article>
+    
     <h2 id="food">Food I like</h2>
     <h3>Favorites</h3>
     <ul>
@@ -45,7 +74,27 @@ Link to bottom of the page: <a href="#last_footer">Footer</a>
         <input type="submit" value="Search">
     </form>
     <hr>
+    <h3>Let's create a simple table</h3>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>Jane</td>
+            <td>Doe</td>
+            <td>22</td>
+        </tr>
+    </table>
     Link to the top of the page: <a href="#top_h1">Top Header</a>
+</main>
+
     <footer id="last_footer">Made with Love (C)2024</footer>
 
     

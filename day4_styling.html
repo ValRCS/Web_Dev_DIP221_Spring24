@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day - 4, CSS</title>
+    <link rel="stylesheet" href="day4.css">
+    <!-- Usually we use external style because internal styles only work on single page <style>
+        p {
+            color: red;
+        }
+        h2 {
+            color: blue;
+        }
+    </style> -->
+</head>
+<body>
+    <h1>CSS</h1>
+    <main>
+        <h2>Styling HTML with CSS</h2>
+
+        <p>There are three ways to add CSS to HTML:</p>
+        <ol>
+            <li>Inline - for custom adjustments</li>
+            <li>Internal - tutorials or everything in one .html page</li>
+            <li class="important-item">External - for most pages</li>
+        </ol>
+        <h2>
+            More on Internal and External CSS
+        </h2>
+        <p style="color:rgb(116, 10, 10);">Internal CSS is added to the head of the HTML document. It is used for small projects or tutorials.</p>
+        <p class="important-item">External CSS is added to a separate file. It is used for most projects.</p>
+    
+        <h2>Alternative to inline styles - use id attribute</h2>
+        <p id="important-paragraph">You can use id attribute to style a single element.</p>
+        <p>But you can use id only once per page. Well browser is not going to yell at you but if you duplicate
+            id attribute, you are going to have a bad time.</p>
+        </p>
+        <footer>
+            <h2> Resources</h2>
+            <ul>
+                <li><a href="https://www.w3schools.com/css/">W3Schools on CSS - not official</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN on CSS - official</a></li>
+            </ul>
+                <div class="reference-links">
+                    <p class="reference-links">
+                        So this would be orange, but not the anchor link below.
+                    </p>
+                   
+                <a href="https://www.w3schools.com/css/" style="color: green;">W3Schools on CSS - not official</a>
+                
+            </div>
+            <div>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN on CSS - official</a>
+            </div>
+
+            
+        </footer>
+    
+    </main>
+</body>
+</html>
