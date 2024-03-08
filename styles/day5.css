@@ -1,0 +1,74 @@
+* {
+    /* * is most general selector it will be overwritten
+    by most other rules*/
+    background-color: beige;
+}
+
+/* Path: styles/day5.css */
+/* let's add some rules for boxes class
+we want some margin and some border */
+.boxes {
+    position: relative; /* crucial if we want to use 
+    position: absolute in children */
+    margin: 10px;
+    border: 2px solid black;
+    padding: 3px;
+    background-color: lightcyan;
+    border-radius: 5px;
+    width: 200px;
+    height: 100px
+
+}
+
+.b-content {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+    width: 50%;
+    height: 20%;
+    /* so if i push it 25% of parent from left
+    then content takes 50% of parent then right side will be 25% */
+    /* for vertical centering we had to consider 
+    also height of the content in this case it was about 18px */
+
+}
+
+.box-1 {
+    position: relative;
+    top: 10px;
+    left: 15px;
+    background-color: lightgreen;
+}
+
+.box-2 {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    /* often used to create a button that is always in the same place */
+    background-color: lightseagreen;
+    z-index: 5000; /* default z-index is 0 */
+}
+
+.box-3 {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    background-color: lightcoral;
+}
+
+.my-emphasis {
+    /* if i want to adjust height and width i need to make this element
+    block or inline-block */
+    /* inline-block is still laying out as inline element but it has
+    block properties */
+    display: inline-block;
+    width: 180px;
+    height: 50px;
+    font-weight: bold;
+    color: red;
+    font-size: 24px;
+}
