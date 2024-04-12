@@ -6,8 +6,12 @@ console.log("Starting our script"); //console.log is built in function in JS tha
 //print current date and time
 console.log(new Date());
 
+//TODO talk about let and const
 let mydate = document.getElementById("creation-date");
-mydate.style.backgroundColor="red";
+mydate.style.backgroundColor="aqua";
+
+//let's update mydate textContent to current date and time
+mydate.textContent = new Date();
 
 
 
