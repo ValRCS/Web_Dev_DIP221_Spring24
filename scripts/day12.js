@@ -60,8 +60,10 @@ function greetString(name) {
 
 //now let's make a function that takes a greeting and element and assigns the greeting to the element
 //this is more flexible because the greeting can be anything
-function greetStringToElement(greeting, element) {
-    element.textContent += greeting; //appending NOT replacing the text
+//lets add a padding to the element textContent with default value of "" if no padding is given
+//default value means if we do not pass anything to padding it will use the default value
+function greetStringToElement(greeting, element, padding = "") {
+    element.textContent += (padding + greeting); //appending NOT replacing the text
     //above is same as element.textContent = element.textContent + greeting;
     console.log(greeting);
 }
@@ -69,3 +71,73 @@ function greetStringToElement(greeting, element) {
 //I can call greetString and pass the result to greetStringToElement
 const myGreeting = greetString("Spring");
 greetStringToElement(myGreeting, myOutputElement);
+
+//we could have a mathematically inclined function which takes two numbers and returns their sum
+function sum(a, b) {
+    //we could do some extra checks here to make sure a and b are numbers
+    //as it is this function will work also with strings because Javascript is very flexible
+    //that is Javascript will not check if a and b are numbers
+    return a + b;
+}
+const myCustomGreeting=`Adding 5 and 7 should be ${sum(5, 7)}`;
+//now we have a LOT of flexibility we can add whatever padding we need
+greetStringToElement(myCustomGreeting, myOutputElement, padding=" 👨‍💻 ");
+
+//now we can create a loop that calculates sums from 1 to 20
+for (let i = 1; i <= 20; i++) {
+    greetStringToElement(`Sum of ${i} and ${i} is ${sum(i, i)}`, myOutputElement, padding=" 🚀 ");
+}
+
+//let's add an event listener that listens to click on a button and then calls a function
+//the function will increase the counter and display it
+//we will need a counter variable
+let counter = 0; //it could have gone up top and started at any number
+//we will need a reference to the button
+const myIncreaseBtn = document.getElementById("btn-click-increase");
+
+//we will need a reference to the element where we will display the counter
+const myCounterElement = document.getElementById("counter-output-id");
+
+//we will need a function that will increase the counter and display it
+function increaseCounter() {
+    counter++;
+    myCounterElement.textContent = `Counter is at ${counter}`;
+    console.log(`Counter is at ${counter}`); //for debugging
+}
+
+//now we will add an event listener to the button
+//we can add event listeners to any element that can have events divs, spans, buttons, inputs etc even body
+//we can listen to many events like click, mouseover, mouseout, keydown, keyup etc
+//notice we pass increaseCounter without () because we do not want to call it here - we just pass the reference
+//let's log that we have created an event listener
+console.log("Adding event listener to button");
+myIncreaseBtn.addEventListener("click", increaseCounter);
+
+//let's find our reset button
+const myResetBtn = document.getElementById("btn-click-reset");
+
+//let's create a reset function
+function resetCounter() {
+    counter = 0;
+    myCounterElement.textContent = `Counter is at ${counter}`;
+    console.log(`Counter is at ${counter}`); //for debugging
+}
+
+//let's add an event listener to the reset button
+//let's listen for mouse up event - means when the mouse is released not clicked
+console.log("Adding event listener to reset button - this time mouse up event");
+myResetBtn.addEventListener("mouseup", resetCounter);
+
+
+//let's add an event listener to the body element that adds random color background on click
+const myBodyElement = document.body;
+function randomColorBackground() {
+    //we will generate random color
+    const randomColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+    myBodyElement.style.backgroundColor = randomColor;
+    console.log(`Setting background color to ${randomColor}`);
+}
+
+//let's add an event listener to the body element
+console.log("Adding event listener to body element");
+myBodyElement.addEventListener("click", randomColorBackground);
