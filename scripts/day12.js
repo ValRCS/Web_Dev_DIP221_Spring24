@@ -32,7 +32,9 @@ greetWithName("Rūta");
 
 //let's make a function that outputs a greeting into textContent of an element that is passed as a parameter
 function greetToElement(name, element) {
-    element.textContent = "Hello " + name + "!";
+    // element.textContent = "Hello " + name + "!";
+    //I like backticks for string interpolation same as above but more readable
+    element.textContent = `Hello ${name}!`;
     //i could add console.log here to see what is happening remove it for production
     console.log("Hello " + name + "!");
 }
@@ -42,3 +44,28 @@ function greetToElement(name, element) {
 const myOutputElement = document.getElementById("fun-output-id");
 
 greetToElement("Valdis", myOutputElement);
+
+//i could call this function with different parameters
+//I can get element on the fly by calling document.getElementById("fun-output-id")
+//I do not save the element in a variable but just pass it directly to function
+greetToElement("Rūta", document.getElementById("fun-output-id-2"));
+
+//functions can also return values
+//let's make a function that takes a name and returns a greeting string
+function greetString(name) {
+    //so this is more pure function that only returns a value
+    //it does not have any side effects - meaning it does not change anything outside of itself
+    return `Hello ${name}!`; //so string interpolation is very handy
+}
+
+//now let's make a function that takes a greeting and element and assigns the greeting to the element
+//this is more flexible because the greeting can be anything
+function greetStringToElement(greeting, element) {
+    element.textContent += greeting; //appending NOT replacing the text
+    //above is same as element.textContent = element.textContent + greeting;
+    console.log(greeting);
+}
+
+//I can call greetString and pass the result to greetStringToElement
+const myGreeting = greetString("Spring");
+greetStringToElement(myGreeting, myOutputElement);

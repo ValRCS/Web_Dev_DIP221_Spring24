@@ -7,4 +7,5 @@
     /* rem stands for root em, it's a relative unit usually it is 16px to start */
     /* some light background color */
     background-color: rgb(191, 223, 221);
+    margin: 5px 0; /* so top bottom margin is 5px and left right is 0 */
 }
