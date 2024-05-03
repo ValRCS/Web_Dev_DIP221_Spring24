@@ -1,0 +1,10 @@
+.fun-output {
+    /* let's add a slight round border and some padding and some minimum height */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 5rem;
+    /* rem stands for root em, it's a relative unit usually it is 16px to start */
+    /* some light background color */
+    background-color: rgb(191, 223, 221);
+}

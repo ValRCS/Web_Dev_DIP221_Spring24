@@ -17,3 +17,28 @@ greet();
 // for (let i = 0; i < 5; i++) {
 //     greet();
 // }
+
+//let's make a function that takes name as parameter and outputs a greeting
+function greetWithName(name) {
+    console.log("Hello " + name + "!");
+    console.log("I hope you are having a great day!");
+}
+
+//I can call this function with a parameter
+// greetWithName(); //well you did not give me a name so Javascript assigns undefined to name
+//in many languages this would be an error but in Javascript it is not
+greetWithName("Valdis");
+greetWithName("Rūta");
+
+//let's make a function that outputs a greeting into textContent of an element that is passed as a parameter
+function greetToElement(name, element) {
+    element.textContent = "Hello " + name + "!";
+    //i could add console.log here to see what is happening remove it for production
+    console.log("Hello " + name + "!");
+}
+
+//I can call this function with a parameter
+// const myOutputElement = document.getElementById("output-fun-id"); //typical juxtaposition of id naming error
+const myOutputElement = document.getElementById("fun-output-id");
+
+greetToElement("Valdis", myOutputElement);
