@@ -116,7 +116,9 @@ const containerElements = document.getElementsByClassName("element-container"); 
 //remember selecting by class could potentially return multiple elements 
 //we will get the first element from the collection
 const containerElement = containerElements[0]; //we use 0 because it is 0 based index
-//
+//if we had an id we could use getElementById but we did not
+
+let counter = 0; //we will use this to generate unique text content for each new element
 
 //we will create a function that will generate a new element
 function generateNewElement() {
@@ -127,9 +129,19 @@ function generateNewElement() {
     //we will set the text content of the new element
     //optionally we could set some styles or attributes here
     //we will append the new element to the container element
-    const newElement = document.createElement("div"); //new element is NOT attached to the DOM yet!
+    const newElement = document.createElement("p"); //new element is NOT attached to the DOM yet!
     //we will set the text content of the new element
-    newElement.textContent = "New element"; //TODO get the value from the input element later
+    counter++; //we will increment the counter by 1
+    newElement.textContent = `Element No. ${counter}` //use counter
+    //before appending we can set class of this element to something
+    newElement.classList.add("new-p-element"); //we can add multiple classes
+
+    //we can use if to add a class conditionally
+    if(counter % 2 === 0) {
+        newElement.classList.add("new-p-element-even");
+    } else {
+        newElement.classList.add("new-p-element-odd");
+    }
     //we will append the new element to the container element
     containerElement.appendChild(newElement); //now that we are ready we attach the new element to the DOM
 }
