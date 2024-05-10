@@ -76,4 +76,34 @@ function logChangeEvent(event) {
 inputElement.addEventListener("change", logChangeEvent);
 inputElement2.addEventListener("change", logChangeEvent);
 
-console.log("Our script is done");
+//let's get number input elements
+const numberInputElement1 = document.getElementById("number-1");
+const numberInputElement2 = document.getElementById("number-2");
+//now output element
+const outputNumberElement = document.getElementById("number-output");
+
+//we will use the input event for the number input elements and display the sum in the output element
+//we will create a function that will handle the input event
+function handleNumberInput(event) {
+    console.log("Calling handleNumberInput");
+    console.log(`Event type is ${event.type}`);
+    console.log(`Input value from event is ${event.target.value}`);
+    //number input needs to be converted to a number
+    const concatenation = numberInputElement1.value + numberInputElement2.value;
+    //we will get the values from the number input elements
+    const number1 = parseFloat(numberInputElement1.value);
+    const number2 = parseFloat(numberInputElement2.value);
+    //we will calculate the sum
+    const sum = number1 + number2;
+    
+    //we will output the sum to the output element
+    outputNumberElement.value = sum; //input elements have value property
+    //we can also output the concatenation as text content to the output element
+    outputElement.textContent = `Concatenation is ${concatenation} and sum is ${sum}`;
+}
+
+//now let's apply a listener to both number input elements meaning whenever the value changes the function will be called
+numberInputElement1.addEventListener("input", handleNumberInput);
+numberInputElement2.addEventListener("input", handleNumberInput);
+
+console.log("Our script is done ready to handle events!");
