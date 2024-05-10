@@ -106,4 +106,35 @@ function handleNumberInput(event) {
 numberInputElement1.addEventListener("input", handleNumberInput);
 numberInputElement2.addEventListener("input", handleNumberInput);
 
+//now let's generate some elements upon click of button
+
+//we will get the button element
+const generateButton = document.getElementById("btn-add-element");
+//we will get the container element
+//for change of pace we will use get element by class name
+const containerElements = document.getElementsByClassName("element-container"); //this returns Multiple elements
+//remember selecting by class could potentially return multiple elements 
+//we will get the first element from the collection
+const containerElement = containerElements[0]; //we use 0 because it is 0 based index
+//
+
+//we will create a function that will generate a new element
+function generateNewElement() {
+    console.log("Calling generateNewElement");
+    //we will create a new element
+    //it is a 3 step process
+    //we will create a new element
+    //we will set the text content of the new element
+    //optionally we could set some styles or attributes here
+    //we will append the new element to the container element
+    const newElement = document.createElement("div"); //new element is NOT attached to the DOM yet!
+    //we will set the text content of the new element
+    newElement.textContent = "New element"; //TODO get the value from the input element later
+    //we will append the new element to the container element
+    containerElement.appendChild(newElement); //now that we are ready we attach the new element to the DOM
+}
+
+//we will attach an event listener to the button element
+generateButton.addEventListener("click", generateNewElement);
+
 console.log("Our script is done ready to handle events!");

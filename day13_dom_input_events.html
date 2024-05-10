@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 13 - Arrow Functions and Input Events</title>
+   <link rel="stylesheet" href="styles/day13.css">
     <script src="scripts/day13.js" defer></script>
 </head>
 <body>
@@ -42,7 +43,19 @@
         <input type="number" id="number-2" name="first-number" min="20" max="30" value="25" />
         <input type="number" id="number-output" name="first-number" readonly />
     </div>
-
-
+    <hr>
+    <h2>Generate New elements interactively</h2>
+    <input type="text" id="input-element">
+    <button id="btn-add-element">Add Element</button>
+    <hr>
+    <div class="element-container"></div>
+    <div class="element-container"></div>
+    <div class="element-container"></div>
+    <div class="element-container"></div>
+<h3>add element references</h3>
+<ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement">MDN Create Element</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/appendChild">MDN Append Child</a></li>
+</ul>
 </body>
 </html>
