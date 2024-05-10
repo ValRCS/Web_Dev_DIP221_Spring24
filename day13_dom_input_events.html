@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 - Arrow Functions and Input Events</title>
+    <script src="scripts/day13.js" defer></script>
+</head>
+<body>
+    <h1>Arrow Functions and DOM Input Events</h1>
+    <h2>Arrow Functions</h2>
+    <p>Arrow functions are a new way to write functions in Javascript. They are shorter and easier to read.</p>
+    <p>They syntax for arrow functions is as follows:</p>
+    <pre>
+        <code>
+            const myFunction = (param1, param2) => {
+                return param1 + param2;
+            }
+        </code>
+    </pre>
+    <p>Arrow functions can be written in a shorter way if they have only one line of code:</p>
+    <pre>
+        <code>
+            const myFunction = (param1, param2) => param1 + param2;
+        </code>
+    </pre>
+    <hr>
+    <h3>Read more on arrow functions</h3>
+    <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN Arrow Functions</a></li>
+        <li><a href="https://www.w3schools.com/js/js_arrow_function.asp">W3Schools Arrow Functions</a></li>
+    </ul>
+    <hr>
+    <h2>DOM Input Events</h2>
+    <p>DOM Input Events are actions that can be detected by the browser. They can be used to trigger functions.</p>
+    <input type="text" id="input-change">
+    <input type="text" id="input-change-2">
+    <div class="fun-output" id="input-output-id"></div>
+</body>
+</html>
