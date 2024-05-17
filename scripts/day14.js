@@ -22,6 +22,15 @@ function addElement(container, tagName, classes, id, textContent="", bgColor=nul
     container.appendChild(newElement);
 }
 
+//let's create a function that removes an element given its id
+function removeElement(container, id) {
+    console.log(`Calling removeElement with id ${id}`);
+    //we will get the element by its id
+    const elementToRemove = document.getElementById(id);
+    //we will remove the element from the container
+    container.removeChild(elementToRemove);
+}
+
 //let's get our container where we will be adding elements
 //its id is element-container-1
 const container = document.querySelector("#element-container-1"); //alternatively we could use getElementById("element-container-1")
@@ -46,4 +55,19 @@ addButton.addEventListener("click", function() {
     const customClass = elementCounter % 2 === 0 ? "even" : "odd";
     //I could have done this with if else but I wanted to show you the ternary operator
     addElement(container, "div", ["boxy", customClass], `element-${elementCounter}`, "This is the element No. " + elementCounter);
+});
+
+//lets get our remove button
+const removeButton = document.querySelector("#remove-element-button");
+
+//now let's add listener to the remove button
+removeButton.addEventListener("click", function() {
+    //good idea to add some safety checks
+    if (elementCounter === 0) {
+        console.log("No elements to remove!");
+        return;
+    }
+    //we will remove the last element from the container
+    removeElement(container, `element-${elementCounter}`); //note how we create the id from the counter
+    elementCounter--;
 });
