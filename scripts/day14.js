@@ -31,6 +31,17 @@ function removeElement(container, id) {
     container.removeChild(elementToRemove);
 }
 
+function addEvenOddElement() {
+    elementCounter++; //we need to adjust this global counter
+    const customClass = elementCounter % 2 === 0 ? "even" : "odd";
+    if (customClass === "even") {
+        console.log(`Even element, adding background color ${colorPicker.value}`);
+        addElement(container, "div", ["boxy", customClass], `element-${elementCounter}`, "This is the element No. " + elementCounter, colorPicker.value);
+    } else { //so odd elements will not have background color
+        addElement(container, "div", ["boxy", customClass], `element-${elementCounter}`, "This is the element No. " + elementCounter);
+    }
+}
+
 //let's get our container where we will be adding elements
 //its id is element-container-1
 const container = document.querySelector("#element-container-1"); //alternatively we could use getElementById("element-container-1")
@@ -44,18 +55,32 @@ const container = document.querySelector("#element-container-1"); //alternativel
 //let's get the button that will add elements
 const addButton = document.querySelector("#add-element-button"); //again you need hash if you are selecting by id
 
+//lets get even color picker element
+const colorPicker = document.querySelector("#even-color-picker");
+
 //let's use a global counter to keep track of the number of elements
 let elementCounter = 0; //this is globally accessible again strive to minimize global variables
 
 //let's add an event listener to the button
 addButton.addEventListener("click", function() {
-    //we will add an element to the container
-    elementCounter++;
-    //depending on elementCounter being even or odd we will supply custom class even or odd
-    const customClass = elementCounter % 2 === 0 ? "even" : "odd";
-    //I could have done this with if else but I wanted to show you the ternary operator
-    addElement(container, "div", ["boxy", customClass], `element-${elementCounter}`, "This is the element No. " + elementCounter);
+    addEvenOddElement();
 });
+
+//lets get button for add-multiple elements
+const addMultipleButton = document.querySelector("#add-multiple-elements-button");
+//also let's get input element that holds add-count
+const addCountInput = document.querySelector("#add-count");
+
+//now let's add listener to the add-multiple button
+addMultipleButton.addEventListener("click", function() {
+    //we will get the value of the input element
+    const addCount = parseInt(addCountInput.value); //we need to convert it to integer
+    //we will add addCount number of elements to the container
+    for (let i = 0; i < addCount; i++) {
+        addEvenOddElement();
+    }
+});
+
 
 //lets get our remove button
 const removeButton = document.querySelector("#remove-element-button");
@@ -71,3 +96,31 @@ removeButton.addEventListener("click", function() {
     removeElement(container, `element-${elementCounter}`); //note how we create the id from the counter
     elementCounter--;
 });
+
+//lets get our removeAll button
+const removeAllButton = document.querySelector("#remove-all-elements-button");
+
+//now let's add listener to the remove button
+removeAllButton.addEventListener("click", function() {
+    //good idea to add some safety checks
+    // if (elementCounter === 0) {
+    //     console.log("No elements to remove!");
+    //     return;
+    // }
+    // //we will remove all elements from the container
+    // while (elementCounter > 0) {
+    //     removeElement(container, `element-${elementCounter}`); //note how we create the id from the counter
+    //     elementCounter--;
+    // }
+    //above approach worked but we had to follow a counter
+    //below approach is generic and will remove all elements of whatever element container
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+      }
+    elementCounter = 0; //since we use it for followup we should reset it
+});
+
+
+//TODO refactor code to have all listeners in a separate function
+//TODO add a main function that will call all the functions
+//TODo add custom text input for elements
